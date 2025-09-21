@@ -19,11 +19,29 @@ class Mahasiswa {
     }
 
     public function create($nama, $nim) {
+        // Cek apakah NIM sudah ada
+        if ($this->isNimExists($nim)) {
+            throw new Exception("NIM '$nim' sudah terdaftar!");
+        }
+        
         $stmt = $this->conn->prepare("INSERT INTO mahasiswa (nama, nim) VALUES (?, ?)");
         return $stmt->execute([$nama, $nim]);
     }
+    
+    public function isNimExists($nim) {
+        $stmt = $this->conn->prepare("SELECT COUNT(*) FROM mahasiswa WHERE nim = ?");
+        $stmt->execute([$nim]);
+        return $stmt->fetchColumn() > 0;
+    }
 
     public function update($id, $nama, $nim) {
+        // Cek apakah NIM sudah ada di record lain
+        $stmt = $this->conn->prepare("SELECT COUNT(*) FROM mahasiswa WHERE nim = ? AND id != ?");
+        $stmt->execute([$nim, $id]);
+        if ($stmt->fetchColumn() > 0) {
+            throw new Exception("NIM '$nim' sudah terdaftar!");
+        }
+        
         $stmt = $this->conn->prepare("UPDATE mahasiswa SET nama = ?, nim = ? WHERE id = ?");
         return $stmt->execute([$nama, $nim, $id]);
     }

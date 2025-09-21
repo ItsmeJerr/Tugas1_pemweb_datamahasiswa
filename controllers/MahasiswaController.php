@@ -16,18 +16,31 @@ class MahasiswaController {
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->model->create($_POST['nama'], $_POST['nim']);
-            header('Location: index.php');
-            exit;
+            try {
+                $this->model->create($_POST['nama'], $_POST['nim']);
+                header('Location: index.php?success=1');
+                exit;
+            } catch (Exception $e) {
+                $error = $e->getMessage();
+                include __DIR__ . '/../views/mahasiswa_create.php';
+                return;
+            }
         }
         include __DIR__ . '/../views/mahasiswa_create.php';
     }
 
     public function edit($id) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->model->update($id, $_POST['nama'], $_POST['nim']);
-            header('Location: index.php');
-            exit;
+            try {
+                $this->model->update($id, $_POST['nama'], $_POST['nim']);
+                header('Location: index.php?success=1');
+                exit;
+            } catch (Exception $e) {
+                $error = $e->getMessage();
+                $data = $this->model->getById($id);
+                include __DIR__ . '/../views/mahasiswa_edit.php';
+                return;
+            }
         }
         $data = $this->model->getById($id);
         include __DIR__ . '/../views/mahasiswa_edit.php';

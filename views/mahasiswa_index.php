@@ -4,6 +4,14 @@ $title = 'Data Mahasiswa';
 ob_start();
 ?>
 
+<?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fas fa-check-circle me-2"></i>
+    Data berhasil disimpan!
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+<?php endif; ?>
+
 <div class="row mb-4">
     <div class="col-md-8">
         <h2 class="mb-0">

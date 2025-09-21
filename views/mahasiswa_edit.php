@@ -14,6 +14,14 @@ ob_start();
                 </h4>
             </div>
             <div class="card-body">
+                <?php if (isset($error)): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <?= htmlspecialchars($error) ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <?php endif; ?>
+                
                 <form method="post" class="needs-validation" novalidate>
                     <div class="mb-3">
                         <label for="nama" class="form-label">

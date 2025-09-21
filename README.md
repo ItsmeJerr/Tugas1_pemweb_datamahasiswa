@@ -1,81 +1,50 @@
-# 📚 Sistem Mahasiswa
+# Sistem Mahasiswa
 
-Aplikasi web sederhana untuk mengelola data mahasiswa dengan tampilan yang modern dan responsif menggunakan PHP MVC pattern.
+Aplikasi web sederhana untuk mengelola data mahasiswa dengan tampilan yang modern dan responsif.
 
-## ✨ Fitur
+## Fitur
 
-- 🎨 **Tampilan Modern** - Bootstrap 5 dengan styling yang profesional
-- 📱 **Responsive Design** - Mobile-friendly untuk semua perangkat
-- ✅ **Form Validation** - Validasi real-time dengan JavaScript
-- 🎯 **Icons Font Awesome** - UI yang lebih menarik dan intuitif
-- 📊 **Tabel Data Modern** - Styling yang bagus dengan hover effects
-- 🧭 **Navigasi Konsisten** - Header dan footer yang seragam
-- 🗑️ **Konfirmasi Hapus** - Proteksi dari penghapusan tidak sengaja
-- 🔒 **Security** - Protection dari XSS dengan htmlspecialchars()
+- ✅ Tampilan modern dengan Bootstrap 5
+- ✅ Responsive design (mobile-friendly)
+- ✅ Form validation dengan JavaScript
+- ✅ Icons Font Awesome untuk UI yang lebih menarik
+- ✅ Tabel data dengan styling yang bagus
+- ✅ Navigasi yang konsisten di semua halaman
+- ✅ Konfirmasi sebelum menghapus data
 
-## 🏗️ Struktur Aplikasi
+## Struktur Aplikasi
 
 ```
 Pemweb/
 ├── config/
-│   └── database.php              # Konfigurasi database
+│   └── database.php          # Konfigurasi database
 ├── controllers/
-│   └── MahasiswaController.php   # Controller utama (MVC)
+│   └── MahasiswaController.php # Controller utama
 ├── models/
-│   └── mahasiswa.php             # Model untuk operasi database
+│   └── mahasiswa.php         # Model untuk operasi database
 ├── views/
-│   ├── layout.php                # Template layout utama
-│   ├── mahasiswa_index.php       # Halaman daftar mahasiswa
-│   ├── mahasiswa_create.php      # Form tambah mahasiswa
-│   └── mahasiswa_edit.php        # Form edit mahasiswa
-├── index.php                     # Entry point aplikasi
-├── .gitignore                    # Git ignore file
-└── README.md                     # Dokumentasi ini
+│   ├── layout.php            # Template layout utama
+│   ├── mahasiswa_index.php   # Halaman daftar mahasiswa
+│   ├── mahasiswa_create.php  # Form tambah mahasiswa
+│   └── mahasiswa_edit.php    # Form edit mahasiswa
+├── index.php                 # Entry point aplikasi
+└── README.md                 # Dokumentasi ini
 ```
 
-## 🛠️ Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
-- **Backend**: PHP 7.4+ dengan MVC Pattern
-- **Frontend**: Bootstrap 5, Font Awesome 6
-- **Database**: MySQL 5.7+
-- **Server**: Apache (XAMPP)
+- **Backend**: PHP (MVC Pattern)
+- **Frontend**: Bootstrap 5, Font Awesome
+- **Database**: MySQL (melalui config/database.php)
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
-### Prerequisites
-- XAMPP atau LAMP/WAMP stack
-- PHP 7.4 atau lebih tinggi
-- MySQL 5.7 atau lebih tinggi
+1. Pastikan XAMPP sudah terinstall dan berjalan
+2. Copy folder aplikasi ke `C:\xampp\htdocs\Pemweb`
+3. Buat database MySQL dan sesuaikan konfigurasi di `config/database.php`
+4. Buka browser dan akses `http://localhost/Pemweb`
 
-### Installation
-
-1. **Clone repository:**
-   ```bash
-   git clone https://github.com/username/pemweb-mahasiswa.git
-   ```
-
-2. **Setup database:**
-   - Buka phpMyAdmin: `http://localhost/phpmyadmin`
-   - Buat database baru: `pemweb`
-   - Import atau jalankan SQL berikut:
-   ```sql
-   CREATE TABLE mahasiswa (
-       id INT AUTO_INCREMENT PRIMARY KEY,
-       nama VARCHAR(100) NOT NULL,
-       nim VARCHAR(20) NOT NULL UNIQUE,
-       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-   );
-   ```
-
-3. **Konfigurasi database:**
-   - Edit file `config/database.php`
-   - Sesuaikan host, username, password sesuai environment Anda
-
-4. **Jalankan aplikasi:**
-   - Start Apache dan MySQL di XAMPP
-   - Buka browser: `http://localhost/pemweb-mahasiswa`
-
-## 📱 Screenshot
+## Screenshot
 
 ### Halaman Utama
 - Tampilan tabel yang modern dengan avatar dan badge
@@ -87,7 +56,7 @@ Pemweb/
 - Styling yang konsisten
 - Placeholder dan label yang informatif
 
-## 🔧 Perbaikan yang Dilakukan
+## Perbaikan yang Dilakukan
 
 1. **Layout Template**: Dibuat template layout yang konsisten dengan Bootstrap
 2. **Styling Modern**: Menggunakan Bootstrap 5 untuk tampilan yang profesional
@@ -100,37 +69,6 @@ Pemweb/
    - Better error handling
    - Consistent navigation
 
-## 📝 API Endpoints
+## Kontribusi
 
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/` | Halaman utama (daftar mahasiswa) |
-| GET | `/?action=create` | Form tambah mahasiswa |
-| POST | `/?action=create` | Proses tambah mahasiswa |
-| GET | `/?action=edit&id={id}` | Form edit mahasiswa |
-| POST | `/?action=edit&id={id}` | Proses update mahasiswa |
-| GET | `/?action=delete&id={id}` | Hapus mahasiswa |
-
-## 🤝 Kontribusi
-
-1. Fork repository ini
-2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buka Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-
-## 🙏 Acknowledgments
-
-- Bootstrap team untuk framework CSS yang luar biasa
-- Font Awesome untuk icons yang beautiful
-- XAMPP untuk development environment
+Silakan fork repository ini dan submit pull request untuk perbaikan atau fitur baru.
